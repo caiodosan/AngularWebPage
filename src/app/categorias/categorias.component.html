@@ -1,0 +1,13 @@
+
+<div>
+    <table *ngFor="let c of cat">
+        <tr>
+            <td>{{c.categoriaId}}</td>
+            <td>{{c.nome}}</td>
+            <td>{{c.imagemUrl}}</td>  
+            <button mat-flat-button color="accent" routerLink= '/categoria-detalhe/{{c.categoriaId}}' ><mat-icon>list</mat-icon></button>
+        </tr>
+        
+    </table>
+  
+</div>
