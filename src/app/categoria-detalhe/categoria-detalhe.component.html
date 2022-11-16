@@ -1,25 +1,22 @@
-<div class="example-container mat-elevation-z8">
+<div class="cont">
     <div class="example-loading-shade" *ngIf="isLoadingResults">
      <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
    </div>
     <div class="button-row">
-     <button mat-flat-button color="accent" [routerLink]="['/categorias']"><mat-icon>arrow_back</mat-icon></button>
+     <button mat-flat-button color="primary" [routerLink]="['/categorias']"><mat-icon>arrow_back</mat-icon></button>
    </div>
     <mat-card class="example-card">
      <mat-card-header>
-        <mat-card-title><h2>{{categoria.nome}}</h2></mat-card-title>
+      <mat-card-title><h3>Nome da Categoria: &ensp;{{categoria.nome}}</h3></mat-card-title>
      </mat-card-header>
-     <mat-card-content>
-        <dl>
-         <dt>Imagem :</dt>
-         <dd> {{categoria.imagemUrl}}</dd>
-       </dl>
-     </mat-card-content>
+     <mat-card-header>
+          <mat-card-title><h3> Url da imagem: &ensp;{{categoria.imagemUrl}}</h3></mat-card-title>
+     </mat-card-header>
      <mat-card-actions>
-        <button mat-flat-button color="primary" class="teste" routerLink='/categoria-editar/{{categoria.categoriaId}}'><mat-icon>add</mat-icon></button>
-        <button mat-flat-button color="warn" (click)="deleteCategoria(categoria.categoriaId)"><mat-icon>delete</mat-icon></button>
+        <button mat-flat-button color="primary"  routerLink='/categoria-editar/{{categoria.categoriaId}}'><mat-icon>edit_square</mat-icon></button>
+        <button mat-flat-button color="warn" style="margin-left: 7px;" (click)="deleteCategoria(categoria.categoriaId)"><mat-icon>delete</mat-icon></button>
      </mat-card-actions>
     </mat-card>
  </div>
- 
+
 

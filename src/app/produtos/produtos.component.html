@@ -1,0 +1,27 @@
+
+<div class="tabela">
+  <form (ngSubmit)="getProdutos(pagenum,pagesize)">
+    <input type="text" [(ngModel)]="pagenum" name="pagenum" id="pagenum">
+    <input type="text" [(ngModel)]="pagesize" name="pagesize" id="pagesize">
+    <button type="submit"><mat-icon >save</mat-icon></button>
+  </form>
+  <table class="styled-table" >
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Nome</th>
+              <th>Imagem</th>
+              <th>Editar</th>
+          </tr>
+      </thead>
+      <tbody *ngFor="let c of produtos">
+          <tr>
+              <td>{{c.produtoId}}</td>
+              <td>{{c.nome}}</td>
+              <td>{{c.imagemUrl}}</td>
+          </tr>
+      </tbody>
+
+  </table>
+
+</div>

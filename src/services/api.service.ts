@@ -1,14 +1,16 @@
 import { Injectable ,} from '@angular/core';
 import {User} from 'src/model/user';
 import {Categoria} from 'src/model/categoria';
+import {Produto} from 'src/model/produto';
 import {Observable,of,throwError} from 'rxjs';
 import {catchError,tap,map} from 'rxjs/operators';
-import {HttpClient,HttpHeaders,HttpErrorResponse} from '@angular/common/http';
+import {HttpClient,HttpHeaders,HttpHeaderResponse} from '@angular/common/http';
 
 const apiUrl = "https://localhost:7134/Categorias";
 const apiLoginUrl = "https://localhost:7134/api/autoriza/login";
+const apiProdutoUrl = 'https://localhost:7134/Produtos?'; //PageNumber=1&PageSize=3
 var httpOptions = {headers: new HttpHeaders({"Content-Type": "application/json"})};
-
+var httphead = {headers: new HttpHeaders({ observe: 'response' })};
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +27,14 @@ export class ApiService {
 
   Login (User:any): Observable<User> {
     return this.http.post<User>(apiLoginUrl,User)
+  }
+
+  getProdutos(pagenum: String,pagesize : String) :Observable<Produto[]> {
+    const apiPag = apiProdutoUrl + 'PageNumber=' + pagenum + '&PageSize=' +pagesize
+    return this.http.get<Produto[]>(apiPag,httphead).pipe(
+      tap(Prod =>  console.log("leu as categorias")),
+      catchError(this.handleError('getProdutos',[]))
+    )
   }
 
   getCategorias (): Observable<Categoria[]> {

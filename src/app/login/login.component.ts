@@ -27,8 +27,9 @@ export class LoginComponent implements OnInit {
   addLogin(form : NgForm) {
     this.isLoadingResults = true;
     this.api.Login(form)
-    .subscribe(res => { 
+    .subscribe(res => {
     localStorage.setItem("jwt", res.token);
+    console.log(res)
     this.isLoadingResults = false;
     this.router.navigate(['/categorias']);
     },(err) => {

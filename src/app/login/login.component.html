@@ -1,12 +1,17 @@
-<h3>Login</h3>
-<form [formGroup]= "loginForm" (ngSubmit)="addLogin(loginForm.value)">
-    <mat-form-field>
-        <input matInput name="email" placeholder="Email" formControlName="email">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <textarea matInput name="password" placeholder="Senha" formControlName="password"></textarea>
-    </mat-form-field>
-    <br>
-    <button type="submit" [disabled]="!loginForm.valid" mat-button color="primary">Enviar</button>
-</form>
+<section class="cont">
+  <form class="formulario" [formGroup]= "loginForm" (ngSubmit)="addLogin(loginForm.value)">
+      <h3 class="formulario__titulo">Login</h3>
+      <mat-form-field class="form-field">
+          <input matInput name="email" placeholder="Email" formControlName="email">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-field">
+          <input type="password" matInput name="password" placeholder="Senha" formControlName="password" />
+      </mat-form-field>
+      <br>
+      <div class="botao-wrapper">
+        <button style="color: white;" class="botao" type="submit" [disabled]="!loginForm.valid" mat-button color="primary">Enviar</button>
+      </div>
+  </form>
+
+</section>

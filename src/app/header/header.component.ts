@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
@@ -16,6 +17,9 @@ export class HeaderComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
-
+  constructor(private breakpointObserver: BreakpointObserver,private router: Router) {}
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }

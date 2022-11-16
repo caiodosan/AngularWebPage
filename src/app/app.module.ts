@@ -8,7 +8,6 @@ import { CategoriaDetalheComponent } from './categoria-detalhe/categoria-detalhe
 import { CategoriaNovaComponent } from './categoria-nova/categoria-nova.component';
 import { CategoriaEditarComponent } from './categoria-editar/categoria-editar.component';
 import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule} from '@angular/material/button'
 import { MatCardModule } from '@angular/material/card'
@@ -23,7 +22,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { LayoutModule } from '@angular/cdk/layout';
-        
+import { ProdutosComponent } from './produtos/produtos.component';
+import { NovoProdutoComponent } from './novo-produto/novo-produto.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +33,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     CategoriaNovaComponent,
     CategoriaEditarComponent,
     LoginComponent,
-    LogoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProdutosComponent,
+    NovoProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     LayoutModule,
     FormsModule,
     ReactiveFormsModule
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

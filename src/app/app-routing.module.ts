@@ -1,3 +1,4 @@
+import { ProdutosComponent } from './produtos/produtos.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategoriasComponent } from './categorias/categorias.component';
@@ -5,7 +6,6 @@ import { CategoriaDetalheComponent } from './categoria-detalhe/categoria-detalhe
 import { CategoriaNovaComponent } from './categoria-nova/categoria-nova.component';
 import { CategoriaEditarComponent } from './categoria-editar/categoria-editar.component';
 import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
 
 
 const routes: Routes = [
@@ -15,14 +15,14 @@ const routes: Routes = [
     data: {title:"Login"}
   },
   {
-    path:"logout",
-    component: LogoutComponent,
-    data: {title:"Logout"}
-  },
-  {
     path:"categorias",
     component: CategoriasComponent,
     data: {title:"Lista de Categorias"}
+  },
+  {
+    path:"produtos",
+    component: ProdutosComponent,
+    data: {title:"Lista de Produtos"}
   },
   {
     path:"categoria-detalhe/:id",

@@ -1,13 +1,23 @@
 
-<div>
-    <table *ngFor="let c of cat">
-        <tr>
-            <td>{{c.categoriaId}}</td>
-            <td>{{c.nome}}</td>
-            <td>{{c.imagemUrl}}</td>  
-            <button mat-flat-button color="accent" routerLink= '/categoria-detalhe/{{c.categoriaId}}' ><mat-icon>list</mat-icon></button>
-        </tr>
-        
+<div class="tabela">
+    <table class="styled-table" >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Imagem</th>
+                <th>Editar</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let c of cat">
+            <tr>
+                <td>{{c.categoriaId}}</td>
+                <td>{{c.nome}}</td>
+                <td>{{c.imagemUrl}}</td>
+                <button style="margin-top:5px ;" mat-flat-button color="primary" routerLink= '/categoria-detalhe/{{c.categoriaId}}' ><mat-icon>list</mat-icon></button>
+            </tr>
+        </tbody>
+
     </table>
-  
+
 </div>
