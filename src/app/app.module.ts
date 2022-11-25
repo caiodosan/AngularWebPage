@@ -23,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ProdutosComponent } from './produtos/produtos.component';
-import { NovoProdutoComponent } from './novo-produto/novo-produto.component';
+import { ProdutoNovoComponent } from './produto-novo/produto-novo.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +35,7 @@ import { NovoProdutoComponent } from './novo-produto/novo-produto.component';
     LoginComponent,
     HeaderComponent,
     ProdutosComponent,
-    NovoProdutoComponent
+    ProdutoNovoComponent
   ],
   imports: [
     BrowserModule,

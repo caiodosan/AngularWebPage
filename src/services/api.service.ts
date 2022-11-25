@@ -37,6 +37,13 @@ export class ApiService {
     )
   }
 
+  addProduto(Produto: any): Observable<any> {
+    return this.http.post<Produto>(apiProdutoUrl,Produto,httpOptions).pipe(
+      tap((Produto:Produto) => console.log(`adicionou o Produto w/ id= ${Produto}`)),
+      catchError(this.handleError('getProdutos'))
+    )
+  }
+
   getCategorias (): Observable<Categoria[]> {
     this.montaHeaderToken();
     console.log(httpOptions.headers);

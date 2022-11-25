@@ -31,7 +31,7 @@ export class CategoriasComponent implements OnInit {
     });
   }
 
-  
+
 
   categorias($event: Categoria[]) {
     this.cat = $event;

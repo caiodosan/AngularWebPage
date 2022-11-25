@@ -1,6 +1,6 @@
 import { Produto } from './../../model/produto';
 import { ApiService } from 'src/services/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpResponse,HttpHeaderResponse } from '@angular/common/http';
 
@@ -10,9 +10,11 @@ import { HttpResponse,HttpHeaderResponse } from '@angular/common/http';
   styleUrls: ['./produtos.component.scss','../categorias/categorias.component.scss']
 })
 export class ProdutosComponent implements OnInit {
-  pagenum : String ='';
-  pagesize : String ='';
+  pagenum : String = '1';
+  pagesize : String= '7';
   produtos! : Produto[];
+
+
 
   constructor(private api : ApiService,private route:ActivatedRoute) { }
 

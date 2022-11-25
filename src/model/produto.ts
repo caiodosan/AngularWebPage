@@ -1,8 +1,8 @@
 export interface Produto {
-  produtoId: number ;
+  produtoId?: number ;
   nome: String;
   imagemUrl: String ;
-  preco: number ;
+  preco?: number ;
   descricao: String ;
-  cateogiraId: number ;
+  cateogiraId?: number ;
 }

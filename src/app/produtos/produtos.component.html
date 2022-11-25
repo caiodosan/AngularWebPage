@@ -1,9 +1,12 @@
 
 <div class="tabela">
   <form (ngSubmit)="getProdutos(pagenum,pagesize)">
-    <input type="text" [(ngModel)]="pagenum" name="pagenum" id="pagenum">
-    <input type="text" [(ngModel)]="pagesize" name="pagesize" id="pagesize">
-    <button type="submit"><mat-icon >save</mat-icon></button>
+    <button type="submit" mat-icon-button  color="primary" ><mat-icon >plus</mat-icon></button>
+    Página: &ensp;<input class="pagina" type="text" size="4" [(ngModel)]="pagenum" name="pagenum" id="pagenum">
+
+    Registros: &ensp;<input class="pagina" type="text" size="4" [(ngModel)]="pagesize" name="pagesize" id="pagesize">
+      <button type="submit" mat-icon-button color="primary" ><mat-icon >search</mat-icon></button>
+
   </form>
   <table class="styled-table" >
       <thead>
@@ -11,7 +14,7 @@
               <th>ID</th>
               <th>Nome</th>
               <th>Imagem</th>
-              <th>Editar</th>
+              <th>Descrição e Tags</th>
           </tr>
       </thead>
       <tbody *ngFor="let c of produtos">
@@ -19,9 +22,45 @@
               <td>{{c.produtoId}}</td>
               <td>{{c.nome}}</td>
               <td>{{c.imagemUrl}}</td>
+              <td>{{c.descricao}}</td>
           </tr>
+
       </tbody>
 
   </table>
 
 </div>
+
+<script>
+
+$("#prev").click(function () {
+      let pageValueDecrement = Number(document.getElementById("pagenum").value) - 1;
+
+      if (pageValueDecrement <= 0) {
+        pageValueDecrement = 1;
+      }
+
+      localStorage.setItem("pagenum", pageValueDecrement);
+      window.location.search = `pagenum=${pageValueDecrement}&pagesize=${limitValue}`;
+    });
+
+    $("#next").click(function() {
+      const pageValueIncrement = Number(document.getElementById("pagenum").value) + 1;
+
+      localStorage.setItem("pagenum", pageValueIncrement);
+      window.location.search = `pagenum=${pageValueIncrement}&pagesize=${limitValue}`;
+    });
+
+  function carregar() {
+      document.getElementById("begin").value = localStorage.getItem("begin");
+      document.getElementById("end").value = localStorage.getItem("end");
+      document.getElementById("pagenum").value = localStorage.getItem("pagenum");
+      document.getElementById("pagesize").value = localStorage.getItem("pagesize");
+    }
+    function submeter() {
+      localStorage.setItem("begin",document.getElementById("begin").value);
+      localStorage.setItem("end",document.getElementById("end").value);
+      localStorage.setItem("pagenum",document.getElementById("pagenum").value);
+      localStorage.setItem("pagesize",document.getElementById("pagesize").value);
+    }
+</script>

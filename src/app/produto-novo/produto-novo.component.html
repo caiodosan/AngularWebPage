@@ -1,0 +1,51 @@
+<section class="cont produto" >
+  <form class="formulario" style="width: 500px !important;" [formGroup]= 'produtoForm' (ngSubmit)="addProduto(produtoForm.value)">
+      <h3 class="formulario__titulo">Adicionar novo Produto</h3>
+      <mat-form-field class="form-field">
+          <input matInput name="nome" placeholder="Nome do Produto" formControlName="nome">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-field">
+          <input matInput name="imagemUrl" placeholder="Imagem" formControlName="imagemUrl" />
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-field">
+        <input matInput name="descricao" placeholder="Descrição" formControlName="descricao" />
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-field">
+        <input type="number" matInput name="preco" [ngModel]="preco" placeholder="Preço" formControlName="preco" />
+      </mat-form-field>
+      <br>
+      <mat-form-field class="form-field">
+        <input type="number" matInput name="estoque" [ngModel]="estoque" placeholder="Estoque" formControlName="estoque" />
+      </mat-form-field>
+      <br>
+      <div class="tabela">
+        <table  class="styled-table">
+            <thead>
+
+                <tr>
+                    <th >ID</th>
+                    <th >Nome</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let c of cat">
+                <tr>
+                    <td>{{c.categoriaId}}</td>
+                    <td>{{c.nome}}</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <br>
+      <mat-form-field class="form-field">
+        <input matInput name="categoriaId" placeholder="ID da Categoria" formControlName="categoriaId" />
+      </mat-form-field>
+      <br>
+      <div class="botao-wrapper">
+        <button style="color: white; max-width: 50px;margin-left: 40%;" class="botao" type="submit" [disabled]="!produtoForm.valid" mat-button color="primary"><mat-icon>add_circle</mat-icon></button>
+
+      </div>
+  </form>
+</section>
